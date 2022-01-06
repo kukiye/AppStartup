@@ -11,15 +11,15 @@ import com.enjoy.appstartup.startup.Startup;
 
 import java.util.List;
 
-public class Task1 extends AndroidStartup<Void> {
+public class Task1 extends AndroidStartup<String> {
 
     @Nullable
     @Override
-    public Void create(Context context) {
+    public String create(Context context) {
         LogUtils.log("学习Java基础");
         SystemClock.sleep(3_000);
         LogUtils.log("掌握Java基础");
-        return null;
+        return "Task1返回数据";
     }
 
 
