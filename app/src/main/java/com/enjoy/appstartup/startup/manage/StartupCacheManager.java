@@ -1,4 +1,7 @@
-package com.enjoy.appstartup.startup;
+package com.enjoy.appstartup.startup.manage;
+
+import com.enjoy.appstartup.startup.Result;
+import com.enjoy.appstartup.startup.Startup;
 
 import java.util.concurrent.ConcurrentHashMap;
 

@@ -2,7 +2,7 @@ package com.enjoy.appstartup;
 
 import android.app.Application;
 
-import com.enjoy.appstartup.startup.StartupManager;
+import com.enjoy.appstartup.startup.manage.StartupManager;
 import com.enjoy.appstartup.tasks.Task1;
 import com.enjoy.appstartup.tasks.Task2;
 import com.enjoy.appstartup.tasks.Task3;

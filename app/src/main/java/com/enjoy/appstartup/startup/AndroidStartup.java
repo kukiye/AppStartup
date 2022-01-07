@@ -3,9 +3,12 @@ package com.enjoy.appstartup.startup;
 
 import android.os.Process;
 
+import com.enjoy.appstartup.startup.manage.ExecutorManager;
+
 import java.util.List;
 import java.util.concurrent.CountDownLatch;
 import java.util.concurrent.Executor;
+import java.util.concurrent.Executors;
 
 public abstract class AndroidStartup<T> implements Startup<T> {
     private CountDownLatch mWaitCountDown = new CountDownLatch(getDependenciesCount());
@@ -33,7 +36,7 @@ public abstract class AndroidStartup<T> implements Startup<T> {
 
     @Override
     public Executor executor() {
-        return null;
+        return ExecutorManager.ioExecutor;
     }
 
     @Override

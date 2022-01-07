@@ -8,9 +8,7 @@ import androidx.annotation.Nullable;
 
 import com.enjoy.appstartup.LogUtils;
 import com.enjoy.appstartup.startup.AndroidStartup;
-import com.enjoy.appstartup.startup.Result;
 import com.enjoy.appstartup.startup.Startup;
-import com.enjoy.appstartup.startup.StartupCacheManager;
 
 import java.util.ArrayList;
 import java.util.List;

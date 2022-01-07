@@ -5,8 +5,8 @@ import android.os.Process;
 
 import com.enjoy.appstartup.startup.Result;
 import com.enjoy.appstartup.startup.Startup;
-import com.enjoy.appstartup.startup.StartupCacheManager;
-import com.enjoy.appstartup.startup.StartupManager;
+import com.enjoy.appstartup.startup.manage.StartupCacheManager;
+import com.enjoy.appstartup.startup.manage.StartupManager;
 
 public class StartupRunnable implements Runnable {
     private StartupManager startupManager;
