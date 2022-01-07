@@ -11,17 +11,21 @@ import com.enjoy.appstartup.startup.sort.TopologySort;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.concurrent.CountDownLatch;
+import java.util.concurrent.atomic.AtomicInteger;
 
 public class StartupManager {
 
 
+    private CountDownLatch awaitCountDownLatch;
     private Context context;
-    private List<AndroidStartup<?>> startupList;
+    private List<Startup<?>> startupList;
     private StartupSortStore startupSortStore;
 
-    public StartupManager(Context context, List<AndroidStartup<?>> startupList) {
+    public StartupManager(Context context, List<Startup<?>> startupList, CountDownLatch awaitCountDownLatch) {
         this.context = context;
         this.startupList = startupList;
+        this.awaitCountDownLatch = awaitCountDownLatch;
     }
 
     public StartupManager start() {
@@ -40,7 +44,19 @@ public class StartupManager {
         return this;
     }
 
+    public void await() {
+        try {
+            awaitCountDownLatch.await();
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        }
+    }
+
     public void notifyChildren(Startup<?> startup) {
+        if (!startup.callCreateOnMainThread() &&
+                startup.waitOnMainThread()) {
+            awaitCountDownLatch.countDown();
+        }
         //获得已经完成的当前任务的所有子任务
         if (startupSortStore
                 .getStartupChildrenMap().containsKey(startup.getClass())) {
@@ -56,21 +72,30 @@ public class StartupManager {
 
 
     public static class Builder {
-        private List<AndroidStartup<?>> startupList = new ArrayList<>();
+        private List<Startup<?>> startupList = new ArrayList<>();
 
-        public Builder addStartup(AndroidStartup<?> startup) {
+        public Builder addStartup(Startup<?> startup) {
             startupList.add(startup);
             return this;
         }
 
-        public Builder addAllStartup(List<AndroidStartup<?>> startupList) {
+        public Builder addAllStartup(List<Startup<?>> startupList) {
             startupList.addAll(startupList);
             return this;
         }
 
 
         public StartupManager build(Context context) {
-            return new StartupManager(context, startupList);
+            AtomicInteger needAwaitCount = new AtomicInteger();
+            for (Startup<?> startup : startupList) {
+                //记录需要主线程等待完成的异步任务
+                if (!startup.callCreateOnMainThread() &&
+                        startup.waitOnMainThread()) {
+                    needAwaitCount.incrementAndGet();
+                }
+            }
+            CountDownLatch awaitCountDownLatch = new CountDownLatch(needAwaitCount.get());
+            return new StartupManager(context, startupList, awaitCountDownLatch);
         }
     }
 

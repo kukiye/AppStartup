@@ -2,6 +2,7 @@
 package com.enjoy.appstartup.tasks;
 
 import android.content.Context;
+import android.os.Looper;
 import android.os.SystemClock;
 
 import androidx.annotation.Nullable;
@@ -25,9 +26,11 @@ public class Task3 extends AndroidStartup<Void> {
     @Nullable
     @Override
     public Void create(Context context) {
-        LogUtils.log("学习设计模式");
+        String t = Looper.myLooper() == Looper.getMainLooper()
+                ? "主线程: " : "子线程: ";
+        LogUtils.log(t+"学习设计模式");
         SystemClock.sleep(2_000);
-        LogUtils.log("掌握设计模式");
+        LogUtils.log(t+"掌握设计模式");
         return null;
     }
 

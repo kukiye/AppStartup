@@ -1,6 +1,7 @@
 package com.enjoy.appstartup.tasks;
 
 import android.content.Context;
+import android.os.Looper;
 import android.os.SystemClock;
 
 
@@ -25,10 +26,17 @@ public class Task5 extends AndroidStartup<Void> {
 
     @Override
     public Void create(Context context) {
-        LogUtils.log("学习OkHttp");
+        String t = Looper.myLooper() == Looper.getMainLooper()
+                ? "主线程: " : "子线程: ";
+        LogUtils.log(t + "学习OkHttp");
         SystemClock.sleep(500);
-        LogUtils.log("掌握OkHttp");
+        LogUtils.log(t + "掌握OkHttp");
         return null;
+    }
+
+    @Override
+    public boolean waitOnMainThread() {
+        return true;
     }
 
     //执行此任务需要依赖哪些任务

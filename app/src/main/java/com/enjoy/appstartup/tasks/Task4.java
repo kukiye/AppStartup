@@ -1,6 +1,7 @@
 package com.enjoy.appstartup.tasks;
 
 import android.content.Context;
+import android.os.Looper;
 import android.os.SystemClock;
 
 
@@ -22,9 +23,11 @@ public class Task4 extends AndroidStartup<Void> {
 
     @Override
     public Void create(Context context) {
-        LogUtils.log("学习Http");
+        String t = Looper.myLooper() == Looper.getMainLooper()
+                ? "主线程: " : "子线程: ";
+        LogUtils.log(t + "学习Http");
         SystemClock.sleep(1_000);
-        LogUtils.log("掌握Http");
+        LogUtils.log(t + "掌握Http");
         return null;
     }
 

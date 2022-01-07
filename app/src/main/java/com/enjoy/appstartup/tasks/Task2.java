@@ -1,6 +1,7 @@
 package com.enjoy.appstartup.tasks;
 
 import android.content.Context;
+import android.os.Looper;
 import android.os.SystemClock;
 
 
@@ -24,12 +25,18 @@ public class Task2 extends AndroidStartup<Void> {
     @Nullable
     @Override
     public Void create(Context context) {
-        LogUtils.log("学习Socket");
+        String t = Looper.myLooper() == Looper.getMainLooper()
+                ? "主线程: " : "子线程: ";
+        LogUtils.log(t + "学习Socket");
         SystemClock.sleep(800);
-        LogUtils.log("掌握Socket");
+        LogUtils.log(t + "掌握Socket");
         return null;
     }
 
+    @Override
+    public boolean callCreateOnMainThread() {
+        return true;
+    }
 
     @Override
     public List<Class<? extends Startup<?>>> dependencies() {

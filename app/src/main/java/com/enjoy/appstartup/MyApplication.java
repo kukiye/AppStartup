@@ -21,6 +21,6 @@ public class MyApplication extends Application {
                 .addStartup(new Task2())
                 .addStartup(new Task1())
                 .build(this)
-                .start();
+                .start().await();
     }
 }

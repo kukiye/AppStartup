@@ -1,6 +1,7 @@
 package com.enjoy.appstartup.tasks;
 
 import android.content.Context;
+import android.os.Looper;
 import android.os.SystemClock;
 
 import androidx.annotation.Nullable;
@@ -16,9 +17,11 @@ public class Task1 extends AndroidStartup<String> {
     @Nullable
     @Override
     public String create(Context context) {
-        LogUtils.log("学习Java基础");
+        String t = Looper.myLooper() == Looper.getMainLooper()
+                ? "主线程: " : "子线程: ";
+        LogUtils.log(t+"学习Java基础");
         SystemClock.sleep(3_000);
-        LogUtils.log("掌握Java基础");
+        LogUtils.log(t+"掌握Java基础");
         return "Task1返回数据";
     }
 
