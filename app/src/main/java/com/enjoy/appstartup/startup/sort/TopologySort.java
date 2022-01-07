@@ -1,5 +1,8 @@
-package com.enjoy.appstartup.startup;
+package com.enjoy.appstartup.startup.sort;
 
+
+import com.enjoy.appstartup.startup.Startup;
+import com.enjoy.appstartup.startup.StartupSortStore;
 
 import java.util.ArrayDeque;
 import java.util.ArrayList;

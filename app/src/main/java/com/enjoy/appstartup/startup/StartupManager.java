@@ -3,13 +3,10 @@ package com.enjoy.appstartup.startup;
 import android.content.Context;
 import android.os.Looper;
 
-import com.enjoy.appstartup.tasks.Task1;
+import com.enjoy.appstartup.startup.sort.TopologySort;
 
 import java.util.ArrayList;
 import java.util.List;
-import java.util.concurrent.CountDownLatch;
-import java.util.concurrent.TimeUnit;
-import java.util.concurrent.atomic.AtomicInteger;
 
 public class StartupManager {
 
