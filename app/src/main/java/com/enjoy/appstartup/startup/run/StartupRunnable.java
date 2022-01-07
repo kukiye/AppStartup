@@ -25,8 +25,10 @@ public class StartupRunnable implements Runnable {
         Process.setThreadPriority(startup.getThreadPriority());
         startup.toWait();
         Object result = startup.create(context);
-        startupManager.notifyChildren(startup, result);
         StartupCacheManager.getInstance().saveInitializedComponent(startup.getClass(),
                 new Result(result));
+
+        startupManager.notifyChildren(startup);
+
     }
 }

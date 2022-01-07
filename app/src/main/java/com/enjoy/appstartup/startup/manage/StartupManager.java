@@ -40,7 +40,7 @@ public class StartupManager {
         return this;
     }
 
-    public void notifyChildren(Startup<?> startup, Object result) {
+    public void notifyChildren(Startup<?> startup) {
         //获得已经完成的当前任务的所有子任务
         if (startupSortStore
                 .getStartupChildrenMap().containsKey(startup.getClass())) {
