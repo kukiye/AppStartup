@@ -14,13 +14,13 @@ public class MyApplication extends Application {
     @Override
     public void onCreate() {
         super.onCreate();
-        new StartupManager.Builder()
-                .addStartup(new Task5())
-                .addStartup(new Task4())
-                .addStartup(new Task3())
-                .addStartup(new Task2())
-                .addStartup(new Task1())
-                .build(this)
-                .start().await();
+//        new StartupManager.Builder()
+//                .addStartup(new Task5())
+//                .addStartup(new Task4())
+//                .addStartup(new Task3())
+//                .addStartup(new Task2())
+//                .addStartup(new Task1())
+//                .build(this)
+//                .start().await();
     }
 }

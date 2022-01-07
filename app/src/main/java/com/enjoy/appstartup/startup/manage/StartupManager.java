@@ -79,8 +79,8 @@ public class StartupManager {
             return this;
         }
 
-        public Builder addAllStartup(List<Startup<?>> startupList) {
-            startupList.addAll(startupList);
+        public Builder addAllStartup(List<Startup<?>> startups) {
+            startupList.addAll(startups);
             return this;
         }
 
