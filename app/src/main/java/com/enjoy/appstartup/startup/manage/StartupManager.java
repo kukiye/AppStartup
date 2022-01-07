@@ -1,8 +1,12 @@
-package com.enjoy.appstartup.startup;
+package com.enjoy.appstartup.startup.manage;
 
 import android.content.Context;
 import android.os.Looper;
 
+import com.enjoy.appstartup.startup.AndroidStartup;
+import com.enjoy.appstartup.startup.Result;
+import com.enjoy.appstartup.startup.Startup;
+import com.enjoy.appstartup.startup.StartupSortStore;
 import com.enjoy.appstartup.startup.sort.TopologySort;
 
 import java.util.ArrayList;

@@ -5,10 +5,10 @@ import java.util.Map;
 
 public class StartupSortStore {
     //所有的任务
-    List<Startup<?>> result;
-    Map<Class<? extends Startup>, Startup<?>> startupMap;
+    public List<Startup<?>> result;
+    public Map<Class<? extends Startup>, Startup<?>> startupMap;
     //当前任务的子任务
-    Map<Class<? extends Startup>, List<Class<? extends Startup>>> startupChildrenMap;
+    public Map<Class<? extends Startup>, List<Class<? extends Startup>>> startupChildrenMap;
 
     public StartupSortStore(List<Startup<?>> result, Map<Class<? extends Startup>, Startup<?>> startupMap, Map<Class<? extends Startup>, List<Class<? extends Startup>>> startupChildrenMap) {
         this.result = result;
