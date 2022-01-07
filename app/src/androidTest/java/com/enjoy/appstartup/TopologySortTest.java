@@ -3,11 +3,10 @@ package com.enjoy.appstartup;
 import android.util.Log;
 
 import androidx.test.ext.junit.runners.AndroidJUnit4;
-import androidx.test.internal.util.LogUtil;
 
 import com.enjoy.appstartup.startup.Startup;
 import com.enjoy.appstartup.startup.StartupSortStore;
-import com.enjoy.appstartup.startup.TopologySort;
+import com.enjoy.appstartup.startup.sort.TopologySort;
 import com.enjoy.appstartup.tasks.Task1;
 import com.enjoy.appstartup.tasks.Task2;
 import com.enjoy.appstartup.tasks.Task3;
