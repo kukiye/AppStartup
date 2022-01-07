@@ -63,8 +63,8 @@ public class StartupManager {
             return this;
         }
 
-        public Builder addAllStartup(List<AndroidStartup<?>> startupList) {
-            startupList.addAll(startupList);
+        public Builder addAllStartup(List<AndroidStartup<?>> startups) {
+            startupList.addAll(startups);
             return this;
         }
 
