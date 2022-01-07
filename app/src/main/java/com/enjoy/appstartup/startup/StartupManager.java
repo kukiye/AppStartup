@@ -29,7 +29,12 @@ public class StartupManager {
         }
         startupSortStore = TopologySort.sort(startupList);
         for (Startup<?> startup : startupSortStore.result) {
-            Object result = startup.create(context);
+//            if (startup.callCreateOnMainThread()) {
+                Object result = startup.create(context);
+//            } else {
+//
+//            }
+
             StartupCacheManager.getInstance().saveInitializedComponent(
                     startup.getClass(), new Result(result));
         }

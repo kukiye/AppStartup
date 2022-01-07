@@ -4,7 +4,7 @@ import android.content.Context;
 
 import java.util.List;
 
-public interface Startup<T> {
+public interface Startup<T> extends Dispatcher {
 
     T create(Context context);
 

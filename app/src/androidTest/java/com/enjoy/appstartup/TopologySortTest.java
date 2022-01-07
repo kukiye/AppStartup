@@ -1,5 +1,7 @@
 package com.enjoy.appstartup;
 
+import android.util.Log;
+
 import androidx.test.ext.junit.runners.AndroidJUnit4;
 import androidx.test.internal.util.LogUtil;
 
@@ -20,6 +22,7 @@ import java.util.List;
 
 @RunWith(AndroidJUnit4.class)
 public class TopologySortTest {
+    private static final String TAG = "TopologySortTest";
 
     @Test
     public void testTopologySort() {
@@ -39,6 +42,6 @@ public class TopologySortTest {
             stringBuilder.append("       ").append(startup.getClass().getName()).append("\n");
         }
         stringBuilder.append("======================================================");
-        LogUtils.log(stringBuilder.toString());
+        Log.e(TAG, stringBuilder.toString());
     }
 }
