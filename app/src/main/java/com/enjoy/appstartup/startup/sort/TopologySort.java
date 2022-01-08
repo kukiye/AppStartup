@@ -42,23 +42,32 @@ public class TopologySort {
             }
         }
         List<Startup<?>> result = new ArrayList<>();
+        List<Startup<?>> main = new ArrayList<>();
+        List<Startup<?>> threads = new ArrayList<>();
         //处理入度为0的任务
         while (!zeroDeque.isEmpty()) {
             Class<? extends Startup> cls = zeroDeque.poll();
             Startup<?> startup = startupMap.get(cls);
-            result.add(startup);
+            if (startup.callCreateOnMainThread()) {
+                main.add(startup);
+            } else {
+                threads.add(startup);
+            }
+
             //删除此入度为0的任务
-            if (startupChildrenMap.containsKey(cls)){
+            if (startupChildrenMap.containsKey(cls)) {
                 List<Class<? extends Startup>> childStartup = startupChildrenMap.get(cls);
                 for (Class<? extends Startup> childCls : childStartup) {
                     Integer num = inDegreeMap.get(childCls);
-                    inDegreeMap.put(childCls,num-1);
-                    if (num - 1 == 0){
+                    inDegreeMap.put(childCls, num - 1);
+                    if (num - 1 == 0) {
                         zeroDeque.offer(childCls);
                     }
                 }
             }
         }
+        result.addAll(threads);
+        result.addAll(main);
         return new StartupSortStore(result, startupMap, startupChildrenMap);
     }
 }
