@@ -20,7 +20,7 @@
             </intent-filter>
         </activity>
         <provider
-            android:name=".startup.provider.StartupProvider"
+            android:name="com.enjoy.appstartup.startup.provider.StartupProvider"
             android:authorities="${applicationId}.android_startup"
             android:exported="false">
             <meta-data

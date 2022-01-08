@@ -35,6 +35,11 @@ public class Task5 extends AndroidStartup<Void> {
     }
 
     @Override
+    public boolean callCreateOnMainThread() {
+        return false;
+    }
+
+    @Override
     public boolean waitOnMainThread() {
         return true;
     }
