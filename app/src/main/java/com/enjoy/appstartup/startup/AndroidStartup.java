@@ -24,15 +24,6 @@ public abstract class AndroidStartup<T> implements Startup<T> {
         return dependencies == null ? 0 : dependencies.size();
     }
 
-    @Override
-    public boolean callCreateOnMainThread() {
-        return false;
-    }
-
-    @Override
-    public boolean waitOnMainThread() {
-        return false;
-    }
 
     @Override
     public Executor executor() {

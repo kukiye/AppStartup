@@ -39,6 +39,11 @@ public class Task2 extends AndroidStartup<Void> {
     }
 
     @Override
+    public boolean waitOnMainThread() {
+        return false;
+    }
+
+    @Override
     public List<Class<? extends Startup<?>>> dependencies() {
         return depends;
     }
