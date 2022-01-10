@@ -28,9 +28,9 @@ public class Task3 extends AndroidStartup<Void> {
     public Void create(Context context) {
         String t = Looper.myLooper() == Looper.getMainLooper()
                 ? "主线程: " : "子线程: ";
-        LogUtils.log(t+"学习设计模式");
+        LogUtils.log(t+" Task3：学习设计模式");
         SystemClock.sleep(2_000);
-        LogUtils.log(t+"掌握设计模式");
+        LogUtils.log(t+" Task3：掌握设计模式");
         return null;
     }
 

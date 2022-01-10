@@ -28,9 +28,9 @@ public class Task5 extends AndroidStartup<Void> {
     public Void create(Context context) {
         String t = Looper.myLooper() == Looper.getMainLooper()
                 ? "主线程: " : "子线程: ";
-        LogUtils.log(t + "学习OkHttp");
+        LogUtils.log(t + " Task5：学习OkHttp");
         SystemClock.sleep(500);
-        LogUtils.log(t + "掌握OkHttp");
+        LogUtils.log(t + " Task5：掌握OkHttp");
         return null;
     }
 
