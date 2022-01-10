@@ -22,9 +22,9 @@ public class Task4 extends AndroidStartup<Void> {
 
     @Override
     public Void create(Context context) {
-        LogUtils.log("学习Http");
+        LogUtils.log("Task4：学习Http");
         SystemClock.sleep(1_000);
-        LogUtils.log("掌握Http");
+        LogUtils.log("Task4：掌握Http");
         return null;
     }
 

@@ -24,9 +24,9 @@ public class Task2 extends AndroidStartup<Void> {
     @Nullable
     @Override
     public Void create(Context context) {
-        LogUtils.log("学习Socket");
+        LogUtils.log("Task2：学习Socket");
         SystemClock.sleep(800);
-        LogUtils.log("掌握Socket");
+        LogUtils.log("Task2：掌握Socket");
         return null;
     }
 
