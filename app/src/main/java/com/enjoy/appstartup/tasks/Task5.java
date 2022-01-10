@@ -25,9 +25,9 @@ public class Task5 extends AndroidStartup<Void> {
 
     @Override
     public Void create(Context context) {
-        LogUtils.log("学习OkHttp");
+        LogUtils.log("Task5：学习OkHttp");
         SystemClock.sleep(500);
-        LogUtils.log("掌握OkHttp");
+        LogUtils.log("Task5：掌握OkHttp");
         return null;
     }
 
