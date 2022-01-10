@@ -1,2 +1,3 @@
 rootProject.name = "AppStartup"
 include ':app'
+include ':lib'

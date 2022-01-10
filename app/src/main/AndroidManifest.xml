@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
     package="com.enjoy.appstartup">
 
     <application
@@ -29,6 +30,10 @@
                 android:value="android.startup" />
         </provider>
 
+        <provider
+            android:name="com.enjoy.lib.SDKProvider"
+            android:authorities="com.enjoy.lib.SDKProvider.sdk"
+            tools:node="remove"/>
     </application>
 
 </manifest>
