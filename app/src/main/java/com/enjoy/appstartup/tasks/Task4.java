@@ -33,4 +33,14 @@ public class Task4 extends AndroidStartup<Void> {
     public List<Class<? extends Startup<?>>> dependencies() {
         return depends;
     }
+
+    @Override
+    public boolean callCreateOnMainThread() {
+        return false;
+    }
+
+    @Override
+    public boolean waitOnMainThread() {
+        return false;
+    }
 }
