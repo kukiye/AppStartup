@@ -19,9 +19,9 @@ public class Task1 extends AndroidStartup<String> {
     public String create(Context context) {
         String t = Looper.myLooper() == Looper.getMainLooper()
                 ? "主线程: " : "子线程: ";
-        LogUtils.log(t+"学习Java基础");
+        LogUtils.log(t+" Task1：学习Java基础");
         SystemClock.sleep(3_000);
-        LogUtils.log(t+"掌握Java基础");
+        LogUtils.log(t+" Task1：掌握Java基础");
         return "Task1返回数据";
     }
 
