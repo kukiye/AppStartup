@@ -54,6 +54,11 @@ public class ThreadUnitTest {
                     System.out.println("第二步执行完成！");
                     lock.notify();
                     //执行第三步
+                    try {
+                        Thread.sleep(1_000);
+                    } catch (InterruptedException e) {
+                        e.printStackTrace();
+                    }
                     data.add("3");
                     System.out.println("第三步执行完成！");
                 }
