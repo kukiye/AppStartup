@@ -20,6 +20,9 @@ public class TopologySort {
         Map<Class<? extends Startup>, Startup<?>> startupMap = new HashMap<>();
         Map<Class<? extends Startup>, List<Class<? extends Startup>>> startupChildrenMap = new HashMap<>();
 
+        /**
+         * 1、找出图中0入度的顶点
+         */
         for (Startup<?> startup : startupList) {
             startupMap.put(startup.getClass(), startup);
             //记录每个任务的入度数（依赖的任务数）
@@ -41,13 +44,18 @@ public class TopologySort {
                 }
             }
         }
+        /**
+         * 2.1、依次在图中删除这些顶点
+         */
         List<Startup<?>> result = new ArrayList<>();
         //处理入度为0的任务
         while (!zeroDeque.isEmpty()) {
             Class<? extends Startup> cls = zeroDeque.poll();
             Startup<?> startup = startupMap.get(cls);
             result.add(startup);
-            //删除此入度为0的任务
+            /**
+             * 2.2、删除后再找出现在0入度的顶点
+             */
             if (startupChildrenMap.containsKey(cls)){
                 List<Class<? extends Startup>> childStartup = startupChildrenMap.get(cls);
                 for (Class<? extends Startup> childCls : childStartup) {
