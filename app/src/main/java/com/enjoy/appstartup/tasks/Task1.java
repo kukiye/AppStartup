@@ -16,9 +16,9 @@ public class Task1 extends AndroidStartup<Void> {
     @Nullable
     @Override
     public Void create(Context context) {
-        LogUtils.log("学习Java基础");
+        LogUtils.log("Task1：学习Java基础");
         SystemClock.sleep(3_000);
-        LogUtils.log("掌握Java基础");
+        LogUtils.log("Task1：掌握Java基础");
         return null;
     }
 

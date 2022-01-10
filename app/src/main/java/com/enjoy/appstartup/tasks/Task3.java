@@ -25,9 +25,9 @@ public class Task3 extends AndroidStartup<Void> {
     @Nullable
     @Override
     public Void create(Context context) {
-        LogUtils.log("学习设计模式");
+        LogUtils.log("Task3：学习设计模式");
         SystemClock.sleep(2_000);
-        LogUtils.log("掌握设计模式");
+        LogUtils.log("Task3：掌握设计模式");
         return null;
     }
 
