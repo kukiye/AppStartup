@@ -2,6 +2,8 @@ package com.enjoy.appstartup;
 
 import org.junit.Test;
 
+import java.util.concurrent.CountDownLatch;
+
 import static org.junit.Assert.*;
 
 /**
