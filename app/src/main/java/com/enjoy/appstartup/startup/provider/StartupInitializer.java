@@ -40,6 +40,7 @@ public class StartupInitializer {
 
     private static void doInitialize(Startup<?> startup,
                                      Map<Class<? extends Startup>, Startup<?>> startups) throws Exception {
+        //避免重复 不能使用List
         startups.put(startup.getClass(), startup);
         if (startup.getDependenciesCount() != 0) {
             //遍历父任务
