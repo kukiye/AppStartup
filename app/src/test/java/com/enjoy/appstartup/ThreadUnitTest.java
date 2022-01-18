@@ -101,7 +101,22 @@ public class ThreadUnitTest {
             }
         };
 
+
         Thread t2 = new Thread() {
+            @Override
+            public void run() {
+                //执行第一步
+                System.out.println("t2:第一步执行完成！");
+                //执行第二步
+                System.out.println("t2:第二步执行完成！");
+                synchronized (lock2) {
+                    lock2.notify();
+                }
+                //执行第三步
+                System.out.println("t2:第三步执行完成！");
+            }
+        };
+        Thread t3 = new Thread() {
             @Override
             public void run() {
                 synchronized (lock1) {
@@ -118,21 +133,7 @@ public class ThreadUnitTest {
                         e.printStackTrace();
                     }
                 }
-                System.out.println("执行第二个线程任务！");
-            }
-        };
-        Thread t3 = new Thread() {
-            @Override
-            public void run() {
-                //执行第一步
-                System.out.println("t3:第一步执行完成！");
-                //执行第二步
-                System.out.println("t3:第二步执行完成！");
-                synchronized (lock2) {
-                    lock2.notify();
-                }
-                //执行第三步
-                System.out.println("t3:第三步执行完成！");
+                System.out.println("执行第三个线程任务！");
             }
         };
         t3.start();
@@ -165,7 +166,20 @@ public class ThreadUnitTest {
             }
         };
 
+
         Thread t2 = new Thread() {
+            @Override
+            public void run() {
+                //执行第一步
+                System.out.println("t2:第一步执行完成！");
+                //执行第二步
+                System.out.println("t2:第二步执行完成！");
+                countDownLatch.countDown();
+                //执行第三步
+                System.out.println("t2:第三步执行完成！");
+            }
+        };
+        Thread t3 = new Thread() {
             @Override
             public void run() {
                 try {
@@ -173,19 +187,7 @@ public class ThreadUnitTest {
                 } catch (InterruptedException e) {
                     e.printStackTrace();
                 }
-                System.out.println("执行第二个线程任务！");
-            }
-        };
-        Thread t3 = new Thread() {
-            @Override
-            public void run() {
-                //执行第一步
-                System.out.println("t3:第一步执行完成！");
-                //执行第二步
-                System.out.println("t3:第二步执行完成！");
-                countDownLatch.countDown();
-                //执行第三步
-                System.out.println("t3:第三步执行完成！");
+                System.out.println("执行第三个线程任务！");
             }
         };
         t3.start();
