@@ -56,12 +56,12 @@ public class TopologySort {
             /**
              * 2.2、删除后再找出现在0入度的顶点
              */
-            if (startupChildrenMap.containsKey(cls)){
+            if (startupChildrenMap.containsKey(cls)) {
                 List<Class<? extends Startup>> childStartup = startupChildrenMap.get(cls);
                 for (Class<? extends Startup> childCls : childStartup) {
                     Integer num = inDegreeMap.get(childCls);
-                    inDegreeMap.put(childCls,num-1);
-                    if (num - 1 == 0){
+                    inDegreeMap.put(childCls, num - 1);
+                    if (num - 1 == 0) {
                         zeroDeque.offer(childCls);
                     }
                 }

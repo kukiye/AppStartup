@@ -23,7 +23,7 @@ public class Task1 extends AndroidStartup<Void> {
     }
 
 
-    //执行此任务需要依赖哪些任务
+    //执行此任务需要依赖哪些任务，即他的前置任务
     @Override
     public List<Class<? extends Startup<?>>> dependencies() {
         return super.dependencies();
