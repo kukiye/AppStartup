@@ -13,6 +13,9 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
+/**
+ * 根据ContentProvider配置的信息，获取最终的任务，根据依赖关系，获取所有需要执行的任务
+ */
 public class StartupInitializer {
     public static String META_VALUE = "android.startup";
 
