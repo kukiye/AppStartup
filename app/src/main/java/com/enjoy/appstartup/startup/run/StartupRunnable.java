@@ -8,6 +8,9 @@ import com.enjoy.appstartup.startup.Startup;
 import com.enjoy.appstartup.startup.manage.StartupCacheManager;
 import com.enjoy.appstartup.startup.manage.StartupManager;
 
+/**
+ * 将每个任务放到线程池的任务中执行
+ */
 public class StartupRunnable implements Runnable {
     private StartupManager startupManager;
     private Startup<?> startup;

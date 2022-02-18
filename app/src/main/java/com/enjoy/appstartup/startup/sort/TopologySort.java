@@ -11,6 +11,9 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
+/**
+ * 有向无环图的拓扑排序
+ */
 public class TopologySort {
 
     public static StartupSortStore sort(List<? extends Startup<?>> startupList) {

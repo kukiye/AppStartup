@@ -5,6 +5,9 @@ import com.enjoy.appstartup.startup.Startup;
 
 import java.util.concurrent.ConcurrentHashMap;
 
+/**
+ * 保存任务结果
+ */
 public class StartupCacheManager {
     private ConcurrentHashMap<Class<? extends Startup>, Result> mInitializedComponents =
             new ConcurrentHashMap();
